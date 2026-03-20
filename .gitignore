@@ -1,0 +1,41 @@
+# Waw SDK — .gitignore
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Vite
+.vite/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
+# VS Code (keep settings if needed, ignore rest)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# TF.js model cache (downloaded at runtime)
+public/models/
+
+# Misc
+*.tmp
+*.bak
+Thumbs.db

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Waw — Change Your Sky</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Loading screen -->
+    <div id="loading-screen">
+      <div class="loading-content">
+        <h1>WAW</h1>
+        <p>Chargement du moteur IA...</p>
+        <div class="loading-bar"><div class="loading-fill" id="loading-fill"></div></div>
+        <p class="loading-status" id="loading-status">Initialisation...</p>
+      </div>
+    </div>
+
+    <!-- Main AR view -->
+    <div id="ar-view" style="display:none;">
+      <!-- Camera video (hidden, used as source) -->
+      <video id="camera-feed" autoplay playsinline muted></video>
+      
+      <!-- Main canvas (composited output) -->
+      <canvas id="output-canvas"></canvas>
+
+      <!-- Debug canvas (segmentation overlay) -->
+      <canvas id="debug-canvas" style="display:none;"></canvas>
+
+      <!-- Performance overlay -->
+      <div id="perf-overlay">
+        <span id="perf-fps">-- FPS</span>
+        <span id="perf-seg">Seg: --ms</span>
+        <span id="perf-render">Render: --ms</span>
+      </div>
+
+      <!-- Mode indicator -->
+      <div id="mode-indicator">📷 Passthrough</div>
+
+      <!-- Controls -->
+      <div id="controls">
+        <button class="mode-btn active" data-mode="passthrough">
+          <span class="btn-icon">👁️</span>
+          <span class="btn-label">Off</span>
+        </button>
+        <button class="mode-btn" data-mode="segmentation">
+          <span class="btn-icon">🔬</span>
+          <span class="btn-label">Seg</span>
+        </button>
+        <button class="mode-btn" data-mode="sky-replace">
+          <span class="btn-icon">☀️</span>
+          <span class="btn-label">Sky</span>
+        </button>
+      </div>
+
+      <!-- Sky selector (hidden by default) -->
+      <div id="sky-selector" style="display:none;">
+        <button class="sky-btn active" data-sky="clear">☀️ Ciel bleu</button>
+        <button class="sky-btn" data-sky="sunset">🌅 Coucher</button>
+        <button class="sky-btn" data-sky="night">🌙 Nuit</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
